@@ -1,0 +1,34 @@
+[data-user-color-scheme='dark'] .page-header {
+    color: #fff;
+    transition: color 0.2s ease-in-out;
+}
+.myself{
+    font-size: 24px;
+}
+.blog{
+    padding: 4% 0px 0px;
+    font-size: 24px;
+}
+.genshin{
+    font-size: 16px;
+}
+.note-info{
+    background-color: #eee;
+    border-color: #afafaf;
+}
+.note-1{
+    background-color: #ffebee;
+    border-color: #ff5722;
+}
+.note-2{
+    background-color: #eef7fa;
+    border-color: #0093E9;
+}
+::marker {
+    unicode-bidi: isolate;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+    font-variant-numeric: tabular-nums;
+}

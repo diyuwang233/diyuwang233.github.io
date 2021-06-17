@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Adb和Fastboot使用归纳</title>
+    <link href="/2021/06/16/adb-fastboot/"/>
+    <url>/2021/06/16/adb-fastboot/</url>
+    
+    <content type="html"><![CDATA[<p>由于本人经常刷机，所以会很常用到adb和fastboot<br>但总是忘记，所以干脆写篇博客记录一下我常用到的adb命令</p><span id="more"></span><div class= "note note-1"><a>以下命令请在开发者选项里打开USB调试并允许Adb调试的情况下输入</a></div><h2 id="Adb"><a href="#Adb" class="headerlink" title="Adb"></a>Adb</h2><h3 id="验证设备是否连接"><a href="#验证设备是否连接" class="headerlink" title="验证设备是否连接"></a>验证设备是否连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb devices<br></code></pre></td></tr></table></figure><p>出现序列号即为已连接</p><h3 id="重启手机"><a href="#重启手机" class="headerlink" title="重启手机"></a>重启手机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb reboot<br></code></pre></td></tr></table></figure><h3 id="重启到rec"><a href="#重启到rec" class="headerlink" title="重启到rec"></a>重启到rec</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb reboot recovery<br></code></pre></td></tr></table></figure><h3 id="重启到Fastboot"><a href="#重启到Fastboot" class="headerlink" title="重启到Fastboot"></a>重启到Fastboot</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb reboot bootloader<br></code></pre></td></tr></table></figure><h3 id="推送ROM"><a href="#推送ROM" class="headerlink" title="推送ROM"></a>推送ROM</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb sideload rom.zip<br></code></pre></td></tr></table></figure><h3 id="手机复制到电脑"><a href="#手机复制到电脑" class="headerlink" title="手机复制到电脑"></a>手机复制到电脑</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb pull /storage/emulated/0/Downloads D:/Backup<br></code></pre></td></tr></table></figure><h3 id="电脑复制到手机"><a href="#电脑复制到手机" class="headerlink" title="电脑复制到手机"></a>电脑复制到手机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb pull D:/Backup /storage/emulated/0/Downloads<br></code></pre></td></tr></table></figure><h3 id="卸载系统应用"><a href="#卸载系统应用" class="headerlink" title="卸载系统应用"></a>卸载系统应用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ adb shell pm uninstall --user 0 com.android.browser<br></code></pre></td></tr></table></figure><p>出现Success即为完成</p><h2 id="Fastboot"><a href="#Fastboot" class="headerlink" title="Fastboot"></a>Fastboot</h2><h3 id="验证设备是否连接-1"><a href="#验证设备是否连接-1" class="headerlink" title="验证设备是否连接"></a>验证设备是否连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot devices<br></code></pre></td></tr></table></figure><p>出现序列号即为已连接</p><h3 id="重启手机-1"><a href="#重启手机-1" class="headerlink" title="重启手机"></a>重启手机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot reboot<br></code></pre></td></tr></table></figure><h3 id="刷写分区"><a href="#刷写分区" class="headerlink" title="刷写分区"></a>刷写分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot flash boot/system/recovery boot.img/system.img/recovery.img<br></code></pre></td></tr></table></figure><p>boot/system/recovery是举例，实际刷写选择其中一个即可</p><h3 id="清除分区"><a href="#清除分区" class="headerlink" title="清除分区"></a>清除分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot erase boot/system/recovery/data/cache<br></code></pre></td></tr></table></figure><p>boot/system/recovery/data/cache是举例，实际刷写选择一个分区即可</p><h3 id="关闭AVB验证"><a href="#关闭AVB验证" class="headerlink" title="关闭AVB验证"></a>关闭AVB验证</h3><p>先从对应版本的ROM包提取vbmeta.img，然后对照命令刷入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot --disable-verity flash vbmeta vbmeta.img<br></code></pre></td></tr></table></figure><div class= "note note-2"><a>如果命令有错误的地方可以联系作者修改</a></div>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
