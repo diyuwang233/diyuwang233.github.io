@@ -9,8 +9,8 @@
     padding: 4% 0px 0px;
     font-size: 24px;
 }
-.genshin{
-    font-size: 16px;
+.font-blod{
+    font-size: 20px;
 }
 .note-info{
     background-color: #eee;
@@ -27,8 +27,8 @@
 ::marker {
     unicode-bidi: isolate;
     text-transform: none;
+    font-variant-numeric: tabular-nums;
+    text-align-last: start !important;
     text-indent: 0px !important;
     text-align: start !important;
-    text-align-last: start !important;
-    font-variant-numeric: tabular-nums;
 }

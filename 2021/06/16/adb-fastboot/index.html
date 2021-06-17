@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#d0d0d0">
-  <meta name="description" content="由于本人经常刷机，所以会很常用到adb和fastboot但总是忘记，所以干脆写篇博客记录一下我常用到的adb命令">
+  <meta name="description" content="前言由于本人经常刷机，所以会很常用到adb和fastboot；但总是忘记，所以干脆写篇博客记录一下我常用到的adb命令">
   <meta name="author" content="Takeyo">
   <meta name="keywords" content="">
   
-  <title>Adb和Fastboot使用归纳 - 竹由</title>
+  <title>Android调试桥(ADB)使用归纳 - 竹由</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -143,7 +143,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Adb和Fastboot使用归纳">
+            <span class="h2" id="subtitle" title="Android调试桥(ADB)使用归纳">
               
             </span>
 
@@ -165,7 +165,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      318 字
+      371 字
     </span>
   
 
@@ -213,16 +213,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Adb和Fastboot使用归纳</h1>
+            <h1 style="display: none">Android调试桥(ADB)使用归纳</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年6月17日 下午
+                  本文最后更新于：2021年6月17日 晚上
                 
               </p>
             
             <div class="markdown-body">
-              <p>由于本人经常刷机，所以会很常用到adb和fastboot<br>但总是忘记，所以干脆写篇博客记录一下我常用到的adb命令</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于本人经常刷机，所以会很常用到adb和fastboot；<br>但总是忘记，所以干脆写篇博客记录一下我常用到的adb命令</p>
 <span id="more"></span>
 
 <div class= "note note-1"><a>以下命令请在开发者选项里打开USB调试并允许Adb调试的情况下输入</a></div>
@@ -256,7 +256,7 @@
 <h3 id="清除分区"><a href="#清除分区" class="headerlink" title="清除分区"></a>清除分区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot erase boot/system/recovery/data/cache<br></code></pre></td></tr></table></figure>
 
 <p>boot/system/recovery/data/cache是举例，实际刷写选择一个分区即可</p>
-<h3 id="关闭AVB验证"><a href="#关闭AVB验证" class="headerlink" title="关闭AVB验证"></a>关闭AVB验证</h3><p>先从对应版本的ROM包提取vbmeta.img，然后对照命令刷入</p>
+<h3 id="关闭AVB验证"><a href="#关闭AVB验证" class="headerlink" title="关闭AVB验证"></a>关闭AVB验证</h3><p>先从对应安卓版本的官方ROM包提取vbmeta.img，然后对照命令刷入<br>(此方法只适用于没有第三方rec或者rec为TWRP官方适配版的情况下，个人开发者编译版本已经具备了关闭AVB验证的功能)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ fastboot --disable-verity flash vbmeta vbmeta.img<br></code></pre></td></tr></table></figure>
 
 <div class= "note note-2"><a>如果命令有错误的地方可以联系作者修改</a></div>
@@ -285,6 +285,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/06/17/flashing/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">目前可用的国内安卓手机通用刷机手法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
