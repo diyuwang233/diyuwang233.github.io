@@ -165,7 +165,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.2k 字
     </span>
   
 
@@ -175,7 +175,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23
+      24
        分钟
     </span>
   
@@ -217,7 +217,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年6月17日 晚上
+                  本文最后更新于：2021年6月18日 下午
                 
               </p>
             
@@ -231,7 +231,7 @@
     <li>Pixel、LG、三星等由于我没有用过洋垃圾，所以并不清楚刷机流程</li>
 </div>
 
-<h2 id="解锁Bootloader"><a href="#解锁Bootloader" class="headerlink" title="解锁Bootloader"></a>解锁Bootloader</h2><p>BL锁基本上只要是一台安卓机就会有的玩意儿<br>顾名思义，这就是个锁，厂商给你手机上的一个锁，只要这个锁没解开，你就不能刷第三方rec、第三方ROM(只能刷官方ROM)，不能root手机等，你无法进行太多的刷机操作，相当于限制了很多<br>所以万恶之源(雾)就是解锁BL，但不是所有手机都能解BL，比如华为(之前还在安卓的时候)，只能去万能的某宝买解锁码<br>不过就我目前用过能解BL的手机，官网可以找到解锁通道，我这里贴俩个：</p>
+<h2 id="解锁Bootloader"><a href="#解锁Bootloader" class="headerlink" title="解锁Bootloader"></a>解锁Bootloader</h2><p>BL锁基本上只要是一台安卓机就会有的东西<br>顾名思义，这就是个锁，厂商给你手机上的一个锁，只要这个锁没解开，你就不能刷第三方rec、第三方ROM(只能刷官方ROM)，不能root手机等，你无法进行太多的刷机操作，相当于限制了很多<br>所以万恶之源(雾)就是解锁BL，但不是所有手机都能解BL，比如华为(之前还在安卓的时候)，只能去万能的某宝买解锁码<br>不过就我目前用过能解BL的手机，官网可以找到解锁通道，我这里贴俩个：</p>
 <div class= "note note-2">
 <ul>
     <li>小米：<a target="_blank" rel="noopener" href="https://www.miui.com/unlock/index.html">https://www.miui.com/unlock/index.html</a></li>
@@ -281,7 +281,7 @@
     <li>PitchBlack Recovery</li>
 </ul>
 
-<p>这两者的区别只有界面上的，功能基本一致<br>一般的第三方rec的官方并不会适配所有机型，所以部分机型就需要全网找个人开发者编译过的了(我更建议使用个人开发者编译过的，功能相对官方版更多)</p>
+<p>这两者的区别只有界面上的，功能基本一致<br>一般的第三方rec的官方并不会适配所有机型，所以部分机型就需要全网找个人开发者编译过的<br>(我更建议使用个人开发者编译过的，功能相对官方版更多)</p>
 <div class= "note note-2">小米设备可以去这个网站找：<a target="_blank" rel="noopener" href="https://mifirm.net/">https://mifirm.net/</a></div>
 
 <h3 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h3><p>大部分安卓手机刷写第三方rec的步骤是一致的<br>所以理论上以下手法为通用</p>
@@ -296,7 +296,12 @@
 </ul>
 
 <p>手机进入fastboot/bootloader模式<br>确认手机已经正常连接电脑之后，就可以开始刷写第三方rec了</p>
-<h3 id="开始刷写"><a href="#开始刷写" class="headerlink" title="开始刷写"></a>开始刷写</h3><div class= "note note-1"><a>由于TWRP分为官方适配和个人开发者编译两个版本，所以请根据自己找到的TWRP来选择刷写方式</a></div>
+<h3 id="开始刷写"><a href="#开始刷写" class="headerlink" title="开始刷写"></a>开始刷写</h3><div class= "note note-1">
+<ul>
+    <li>由于TWRP分为官方适配和个人开发者编译两个版本，所以请根据自己找到的TWRP来选择刷写方式</li>
+    <li>注意手机的安卓版本必须和rec的安卓版本一致</ul>
+</ul>
+</div>
 
 <h4 id="官方适配版"><a href="#官方适配版" class="headerlink" title="官方适配版"></a>官方适配版</h4><p>如果是官方适配版，大部分情况下只会得到一个img文件<br>将下载下来的img文件复制到adb目录下，键入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">D:\Program Files\adb&gt; fastboot flash recovery recovery.img<br>或者<br>D:\Program Files\adb&gt; fastboot flash boot recovery.img]<br></code></pre></td></tr></table></figure>
@@ -305,7 +310,13 @@
 <div class= "note note-2"><a>由于官方适配的TWRP功能过于稀少，所以我并没有找到防覆盖的方法</a></div>
 
 <h4 id="个人开发者编译版"><a href="#个人开发者编译版" class="headerlink" title="个人开发者编译版"></a>个人开发者编译版</h4><p>如果是个人开发者编译过的，大部分情况下会得到一个包<br>将下载下来的包解压出来，运行一键刷入脚本，剩下的操作跟着脚本提示一步一步来即可</p>
-<p>当显示OKAY刷写成功后，脚本会自动重启手机并进入rec<br>同意System读写并输入用户密码进入TWRP主界面，选择左下角”高级”<br>选择”防止被官方rec覆盖”，滑动滑条确定</p>
+<p>当显示OKAY刷写成功后，脚本会自动重启手机并进入rec<br>同意System读写并输入用户密码进入TWRP主界面：</p>
+<ul>
+    <li>选择 高级>防止被官方rec覆盖>滑动按钮>完成</li>
+    <li>选择 高级>关闭AVB 2.0验证>滑动按钮>完成</li>
+</ul>
+
+<p>(更多关闭方法可参考我的<a target="_blank" rel="noopener" href="https://blog.takeyoz.com/2021/06/16/adb-fastboot/#关闭AVB验证">上篇文章</a>)</p>
 <div class= "font-blod"><a></a>至此，刷写第三方rec已全部完成</div>
 
 <h2 id="刷写第三方ROM"><a href="#刷写第三方ROM" class="headerlink" title="刷写第三方ROM"></a>刷写第三方ROM</h2><div class= "note note-info">
@@ -316,7 +327,7 @@
 <p>第三方ROM有很多，你可以刷原生ROM，或者是其他手机厂商的UI<br>但需要有你的机型适配，这样刷上去的系统才完美，不然刷通刷包只能保证这个系统能够在你这台手机上运行，体验说不上好<br>原生里较为优秀的几个ROM：</p>
 <ul>
     <li>Havoc</li>
-    <li>MoKee</li>
+    <li>MoKee(魔趣)</li>
     <li>Descendant</li>
     <li>LineageOS</li>
     <li>crDroid</li>
@@ -329,7 +340,7 @@
 <h3 id="准备工作-2"><a href="#准备工作-2" class="headerlink" title="准备工作"></a>准备工作</h3><p>大部分安卓手机刷写第三方ROM的步骤是一致的<br>所以理论上以下手法为通用</p>
 <ul>
     <li>一台已经解锁的手机并已刷入第三方rec</li>
-    <li>手机已关闭AVB验证(关闭方法可参考我的<a target="_blank" rel="noopener" href="https://blog.takeyoz.com/2021/06/16/adb-fastboot/#关闭AVB验证">上篇文章</a>)</li>
+    <li>手机已关闭AVB验证</li>
     <li>开发者选项中开启USB调试</li>
     <li>你找好的第三方ROM</li>
     <li>一台有USB接口且可操作的电脑</li>
@@ -340,15 +351,22 @@
 <p>手机进入recovery模式，同时保证电脑能够正常访问手机内部存储空间</p>
 <div class= "note note-1"><a>注意：</a>
 <ul>
-    <li>ROM的安卓版本必须等于或大于你的低包安卓版本，否则会无法进入系统</li>
+    <li>ROM的安卓版本必须等于或大于你的底包安卓版本，否则会无法进入系统</li>
     <li>底包无特殊情况下，一般用手机厂商的官方UI</li>
 </ul>
 </div>
 
-<h3 id="开始刷写-1"><a href="#开始刷写-1" class="headerlink" title="开始刷写"></a>开始刷写</h3><p>将你找好的包移动到你手机熟悉的目录下，在TWRP主界面中，选择”安装”，找到你移进去的包，滑动滑条，开始刷写<br>完成后主界面选择清除，双清手机，重启系统<br>接下来你就可以享受你的新系统了</p>
+<h3 id="开始刷写-1"><a href="#开始刷写-1" class="headerlink" title="开始刷写"></a>开始刷写</h3><p>1、双清手机：清除&gt;滑动按钮&gt;等待完成&gt;重启rec<br>2、刷入系统：将ROM移至手机存储，rec首页选择：安装</p>
+<ul>
+    <li>选择你的ROM>滑动刷入>等待完成>重启手机</li>
+    <li>此方法只适用于出厂安卓10以下的手机：</br>
+    刷入img镜像>选择你的ROM镜像>选择刷入System镜像>滑动刷入>等待完成>重启手机</li>
+</ul>
+
+<p>接下来你就可以享受你的新系统了</p>
 <div class= "note note-2"><a>关于跳过谷歌开机验证：</a>
 <ul>
-    <li>人尽皆知的四角大法</li>
+    <li>顺时针从左上角开始点按手机屏幕的4个角</li>
     <li>再去双清一遍</li>
     <li>先刷一个不带有谷歌框架的ROM，正常进入系统后，再刷带有谷歌框架的ROM</li>
 </ul>
